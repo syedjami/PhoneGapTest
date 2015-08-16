@@ -10,6 +10,17 @@ var app = {
                 e = employees[i];
                 $('.employee-list').append('<li><a href="#employees/' + e.id + '">' + e.firstName + ' ' + e.lastName + '</a></li>');
             }
+			
+			alert('test alert 1');
+
+			navigator.geolocation.getCurrentPosition(function(position) {
+				$('.location', this.el).html(position.coords.latitude + ',' + position.coords.longitude);
+				alert('Here is my longitude: ' + position.coords.longitude);
+			},
+			function() {
+				alert('Error getting web location');
+			});
+			
         });
     },
 	
