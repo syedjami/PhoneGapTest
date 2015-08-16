@@ -20,11 +20,14 @@ var app = {
 			alert(title ? (title + ": " + message) : message);
 		}
 	},
-
-    initialize: function() {
-        this.store = new MemoryStore();
-        $('.search-key').on('keyup', $.proxy(this.findByName, this));
-    }
+	
+	initialize: function() {
+    var self = this;
+    this.store = new MemoryStore(function() {
+        self.showAlert('Store Initialized', 'Info');
+    });
+    $('.search-key').on('keyup', $.proxy(this.findByName, this));
+}
 	
 	
 
